@@ -6,11 +6,11 @@ Measured Voice app cookbooks for use with AWS Opsworks
 
 ## deployment::secrets_file recipe
 
-Include this custom recipe to generate a too_many_secrets.rb file containing ENV variables for a Rails application.
+Include this custom recipe to generate a too_many_secrets.rb file containing ENV variables for use by a Rails application.
 
 ### Custom JSON 
 
-Add a 'secrets' section to the custom JSON in your stack configuration and specify the secrets file to be symlinked:
+In the custom JSON in your [stack configuration](http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html), add a 'secrets' section with the ENV variables and their values. (Variable names will be upcased.) Also add the secrets file to the list of files to symlink.
 
 ```
 {
@@ -45,6 +45,3 @@ secrets_file = File.expand_path('../too_many_secrets', __FILE__)
 require secrets_file if File.exists?(secrets_file + '.rb')
 ```
 
-### To Do
-
-The secrets files follow a generic format, so the recipe should be able to set the ENV variable names solely on the contents of the secrets hash.
