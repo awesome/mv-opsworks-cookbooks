@@ -12,7 +12,7 @@ node[:deploy].each do |application, deploy|
     
     variables(:secret => deploy[:secrets])
 
-    notifies :run, resources(:execute => "restart Rails app #{application}")
+    # notifies :run, resources(:execute => "restart Rails app #{application}")
 
     only_if do
       File.exists?("#{deploy[:deploy_to]}") && File.exists?("#{deploy[:deploy_to]}/shared/config/")
