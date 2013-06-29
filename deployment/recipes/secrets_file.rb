@@ -10,7 +10,7 @@ node[:deploy].each do |application, deploy|
     group deploy[:group]
     owner deploy[:user]
     
-    variables(:secret => deploy[:secrets])
+    variables(:secret => deploy[:secrets].to_hash)
 
     # notifies :run, resources(:execute => "restart Rails app #{application}")
 
