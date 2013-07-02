@@ -4,6 +4,7 @@ version "0.1"
 supports "ubuntu", ">= 8.10"
 
 recipe "deployment::secrets_file", "Add secrets file to a Rails application"
+recipe "deployment::shared_assets", "Create a shared/assets folder"
 
 depends "rails"
 
