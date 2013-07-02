@@ -1,8 +1,4 @@
-include_recipe "deploy"
-
 node[:deploy].each do |application, deploy|
-  deploy = node[:deploy][application]
-
   template "#{deploy[:deploy_to]}/shared/config/too_many_secrets.rb" do
     source "too_many_secrets.rb.erb"
     cookbook 'deployment'
