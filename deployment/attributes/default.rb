@@ -1,4 +1,4 @@
-#default[:deploy] = {}
+default[:deploy] = {}
 node[:deploy].each do |application, deploy|
   default[:deploy][application][:secrets] = {}
 
