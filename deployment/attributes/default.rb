@@ -13,5 +13,3 @@ node[:deploy].each do |application, deploy|
   default[:deploy][application][:secrets][:youtube_api_key] = ""
 end
 
-default[:deploy][:user] = "deploy"
-default[:deploy][:group] = "nginx"
